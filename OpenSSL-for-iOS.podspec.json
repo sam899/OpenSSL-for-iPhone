@@ -19,7 +19,8 @@
   },
   "prepare_command": "./build-libssl.sh",
   "ios": {
-    "vendored_libraries": [ "lib/libcrypto.a", "lib/libssl.a" ]
+    "vendored_libraries": [ "lib/libcrypto.a", "lib/libssl.a" ],
+	"public_header_files": "include/openssl/*.h"
   },
   "license": {
     "type": "OpenSSL (OpenSSL/SSLeay)",
