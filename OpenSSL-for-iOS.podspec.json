@@ -12,14 +12,14 @@
     "tag": "1.0.2.d.0"
   },
   "summary": "OpenSSL as an iOS Framework",
-  "description": "    The OpenSSL Project is a collaborative effort to develop a robust, commercial-grade, full-featured, and Open Source\n    toolkit implementing the Secure Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS) protocols as well as a\n    full-strength general purpose cryptography library.\n\n    This CocoaPod provides OpenSSL as an iOS framework. It uses the OpenSSL-for-iOS scripts from Felix Schulze to\n    compile OpenSSL.\n",
+  "description": "The OpenSSL Project is a collaborative effort to develop a robust, commercial-grade, full-featured, and Open Source\n    toolkit implementing the Secure Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS) protocols as well as a\n    full-strength general purpose cryptography library.\n\n    This CocoaPod provides OpenSSL as an iOS framework. It uses the OpenSSL-for-iOS scripts from Felix Schulze to\n    compile OpenSSL.\n",
   "requires_arc": false,
   "platforms": {
     "ios": "8.0"
   },
-  "prepare_command": "    ./build-libssl.sh\n    ./create-openssl-framework.sh dynamic\n",
+  "prepare_command": "./build-libssl.sh",
   "ios": {
-    "vendored_frameworks": "openssl.framework"
+    "vendored_libraries": [ "lib/libcrypto.a", "lib/libssl.a" ]
   },
   "license": {
     "type": "OpenSSL (OpenSSL/SSLeay)",
