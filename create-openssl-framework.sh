@@ -21,7 +21,7 @@ if [ "$1" == "dynamic" ]; then
     CURRENTPATH=`pwd`
     for f in ${CURRENTPATH}/bin/iPhoneSimulator${SDKVERSION}-i386.sdk/lib ${CURRENTPATH}/bin/iPhoneSimulator${SDKVERSION}-x86_64.sdk/lib  ${CURRENTPATH}/bin/iPhoneOS${SDKVERSION}-armv7.sdk/lib ${CURRENTPATH}/bin/iPhoneOS${SDKVERSION}-armv7s.sdk/lib ${CURRENTPATH}/bin/iPhoneOS${SDKVERSION}-arm64.sdk/lib; do
         arch=`echo $f | sed 's,^.*-\(.*\)\.sdk.*$,\1,'`
-        xcrun ld -arch_multiple -arch $arch -dylib -dynamic -all_load -force_cpusubtype_ALL -no_arch_warnings -dylib_install_name openssl.framework/openssl -undefined dynamic_lookup $f/libcrypto.a $f/libssl.a -o openssl.framework/openssl.libtool.$arch -ios_version_min 9.0 -final_output openssl.framework/openssl
+        xcrun ld -arch_multiple -arch $arch -dylib -dynamic -all_load -force_cpusubtype_ALL -no_arch_warnings -dylib_install_name "@rpath/openssl.framework/openssl" -undefined dynamic_lookup $f/libcrypto.a $f/libssl.a -o openssl.framework/openssl.libtool.$arch -ios_version_min 9.0 -final_output openssl.framework/openssl
     done
     xcrun lipo -create -output openssl.framework/openssl openssl.framework/openssl.libtool.i386 openssl.framework/openssl.libtool.armv7 openssl.framework/openssl.libtool.armv7s openssl.framework/openssl.libtool.x86_64 openssl.framework/openssl.libtool.arm64 
     for f in ${CURRENTPATH}/bin/iPhoneSimulator${SDKVERSION}-i386.sdk/lib ${CURRENTPATH}/bin/iPhoneSimulator${SDKVERSION}-x86_64.sdk/lib  ${CURRENTPATH}/bin/iPhoneOS${SDKVERSION}-armv7.sdk/lib ${CURRENTPATH}/bin/iPhoneOS${SDKVERSION}-armv7s.sdk/lib ${CURRENTPATH}/bin/iPhoneOS${SDKVERSION}-arm64.sdk/lib; do
