@@ -80,6 +80,7 @@
 				F855A45F1BBC770900590558 /* Frameworks */,
 				F855A4601BBC770900590558 /* Headers */,
 				F855A4611BBC770900590558 /* Resources */,
+				F855A4BB1BBC8A5900590558 /* Run Script: Copy OpenSSL headers */,
 			);
 			buildRules = (
 			);
@@ -159,6 +160,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "env -i -- ${SOURCE_ROOT}/../create-openssl-framework.sh || exit 1\ncp openssl.framework/openssl libopenssl.a";
+		};
+		F855A4BB1BBC8A5900590558 /* Run Script: Copy OpenSSL headers */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script: Copy OpenSSL headers";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp -r openssl.framework/Headers/* ${TARGET_BUILD_DIR}/openssl.framework/Headers";
 		};
 /* End PBXShellScriptBuildPhase section */
 
