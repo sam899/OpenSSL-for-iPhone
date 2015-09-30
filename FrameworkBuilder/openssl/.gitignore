@@ -1,0 +1,6 @@
+bin
+lib
+src
+*.gz
+include/openssl
+libopenssl.a
