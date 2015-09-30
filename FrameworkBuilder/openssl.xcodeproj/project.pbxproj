@@ -15,8 +15,6 @@
 		F855A4631BBC770900590558 /* openssl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = openssl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F855A4661BBC770900590558 /* openssl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = openssl.h; sourceTree = "<group>"; };
 		F855A4681BBC770900590558 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F855A46F1BBC778E00590558 /* build-libssl.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = "build-libssl.sh"; path = "../../build-libssl.sh"; sourceTree = "<group>"; };
-		F855A4701BBC778E00590558 /* create-openssl-framework.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = "create-openssl-framework.sh"; path = "../../create-openssl-framework.sh"; sourceTree = "<group>"; };
 		F855A4721BBC7DCB00590558 /* libopenssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopenssl.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -35,8 +33,6 @@
 		F855A4591BBC770900590558 = {
 			isa = PBXGroup;
 			children = (
-				F855A46F1BBC778E00590558 /* build-libssl.sh */,
-				F855A4701BBC778E00590558 /* create-openssl-framework.sh */,
 				F855A4651BBC770900590558 /* openssl */,
 				F855A4721BBC7DCB00590558 /* libopenssl.a */,
 				F855A4641BBC770900590558 /* Products */,
@@ -148,7 +144,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "[ -f lib/libcrypto.a -a lib/libssl.a ] && exit 0\n\n env -i -- ${SOURCE_ROOT}/../../build-libssl.sh";
+			shellScript = "[ -f lib/libcrypto.a -a lib/libssl.a ] && exit 0\n\n env -i -- ${SOURCE_ROOT}/../build-libssl.sh";
 		};
 		F855A4711BBC77E400590558 /* Run Script: Create static library */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -162,7 +158,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "env -i -- ${SOURCE_ROOT}/../../create-openssl-framework.sh || exit 1\ncp openssl.framework/openssl libopenssl.a";
+			shellScript = "env -i -- ${SOURCE_ROOT}/../create-openssl-framework.sh || exit 1\ncp openssl.framework/openssl libopenssl.a";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -327,6 +323,7 @@
 				F855A46D1BBC770900590558 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
